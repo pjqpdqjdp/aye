@@ -1,0 +1,17 @@
+﻿<ContentPage
+    x:Class="MVVMTransferData.Views.SecondView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MVVMTransferData.ViewModels"
+    Title="SecondView"
+    x:DataType="vm:SecondViewModel">
+    <VerticalStackLayout Padding="20" VerticalOptions="Center">
+        <Label Text="{Binding InputLesson.ClassroomName, StringFormat='Аудитория {0}'}" />
+        <Label Text="{Binding InputLesson.TeacherName, StringFormat='ФИО преподавателя {0}'}" />
+        <Label Text="{Binding InputLesson.SubjectName, StringFormat='Дисциплина {0}'}" />
+        <Label Text="{Binding InputLesson.StartAt, StringFormat='Начало пары {0}'}" />
+        <Label Text="{Binding InputLesson.EndAt, StringFormat='Конец пары {0}'}" />
+        <!-- Кнопка для возврата на FirstView -->
+        <Button Command="{Binding GoBackToFirstViewCommand}" Text="Вернуться на FirstView" />
+    </VerticalStackLayout>
+</ContentPage>

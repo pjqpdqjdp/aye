@@ -1,0 +1,36 @@
+﻿<ContentPage
+    x:Class="MVVMTransferData.Views.FirstView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MVVMTransferData.ViewModels"
+    Title="FirstView"
+    x:DataType="vm:FirstViewModel">
+
+    <VerticalStackLayout Padding="20" VerticalOptions="Center">
+
+        <Label Text="Название аудитории:" />
+        <Entry Text="{Binding ClassroomName}" />
+
+        <Label Text="ФИО преподавателя:" />
+        <Entry Text="{Binding TeacherName}" />
+
+        <Label Text="Название дисциплины:" />
+        <Entry Text="{Binding SubjectName}" />
+
+        <Label Text="Начало пары:" />
+        <TimePicker Time="{Binding StartAt}" />
+
+        <Label Text="Конец пары:" />
+        <TimePicker Time="{Binding EndAt}" />
+
+        <Button Command="{Binding GoToSecondViewCommand}" Text="Переход на вторую страницу" />
+
+        <Label Text="---- Данные из SecondView ----" HorizontalOptions="Center" />
+        <Label Text="{Binding InputtedLessonFromSecondView.ClassroomName, StringFormat='Аудитория: {0}'}" IsVisible="{Binding InputtedLessonFromSecondView, Converter={StaticResource NotNullConverter}}"/>
+        <Label Text="{Binding InputtedLessonFromSecondView.TeacherName, StringFormat='ФИО преподавателя: {0}'}" IsVisible="{Binding InputtedLessonFromSecondView, Converter={StaticResource NotNullConverter}}"/>
+        <Label Text="{Binding InputtedLessonFromSecondView.SubjectName, StringFormat='Дисциплина: {0}'}" IsVisible="{Binding InputtedLessonFromSecondView, Converter={StaticResource NotNullConverter}}"/>
+        <Label Text="{Binding InputtedLessonFromSecondView.StartAt, StringFormat='Начало пары: {0}'}" IsVisible="{Binding InputtedLessonFromSecondView, Converter={StaticResource NotNullConverter}}"/>
+        <Label Text="{Binding InputtedLessonFromSecondView.EndAt, StringFormat='Конец пары: {0}'}" IsVisible="{Binding InputtedLessonFromSecondView, Converter={StaticResource NotNullConverter}}"/>
+        <Label Text="{Binding InputtedLessonFromSecondView.EndAt}" IsVisible="{Binding InputtedLessonFromSecondView, Converter={StaticResource NotNullConverter}}"/>
+    </VerticalStackLayout>
+</ContentPage>
